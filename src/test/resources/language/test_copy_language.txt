@@ -1,0 +1,2 @@
+a-message = A message
+b-message = B message
