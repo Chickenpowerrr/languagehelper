@@ -3,6 +3,7 @@ package com.gmail.chickenpowerrr.languaguehelper.test;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.startsWith;
 
 import com.gmail.chickenpowerrr.languagehelper.LanguageHelper;
 import java.io.BufferedReader;
@@ -100,7 +101,7 @@ public class LanguageHelperTest {
   @Test
   public void readNotExistingTranslationTest() {
     assertThat(this.languageHelper.getMessage("test_copy_language", "non_existing"),
-        equalTo("We couldn't find a translation"));
+        startsWith("We couldn't find a translation"));
   }
 
   @Test

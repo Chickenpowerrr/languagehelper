@@ -88,12 +88,20 @@ public class LanguageHelper {
   }
 
   public String getMessage(String language, String translationKey) {
+    return getMessage(language, null, translationKey);
+  }
+
+  public String getMessage(String language, String backupLanguage, String translationKey) {
     if (this.languageResources.containsKey(language)) {
       String translation = this.languageResources.get(language).getTranslation(translationKey);
       if (translation != null) {
         return translation;
       }
-      return "We couldn't find a translation";
+
+      if (backupLanguage != null) {
+        return getMessage(backupLanguage, null, translationKey);
+      }
+      return "We couldn't find a translation (" + translationKey + ")";
     }
     return "The language: \"" + language + "\" doesn't exist";
   }
